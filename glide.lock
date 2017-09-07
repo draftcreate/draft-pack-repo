@@ -1,0 +1,29 @@
+hash: 382e84f55a5623e448584250d5937f5f53653c9a574cbba07e95ada47f2f8e06
+updated: 2017-09-07T15:59:59.750590977-07:00
+imports:
+- name: github.com/Azure/draft
+  version: 3d3ab9412686ad5ae523ed7eca721a21e85a38fc
+  subpackages:
+  - pkg/draft/draftpath
+  - pkg/plugin/installer
+- name: github.com/inconshreveable/mousetrap
+  version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
+- name: github.com/Masterminds/semver
+  version: 3f0ab6d4ab4bed1c61caf056b63a6e62190c7801
+- name: github.com/Masterminds/vcs
+  version: 3084677c2c188840777bff30054f2b553729d329
+- name: github.com/Sirupsen/logrus
+  version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
+- name: github.com/spf13/cobra
+  version: f62e98d28ab7ad31d707ba837a966378465c7b57
+- name: github.com/spf13/pflag
+  version: 9ff6c6923cfffbcd502984b8e0c80539a94968b7
+- name: golang.org/x/sys
+  version: 8f0908ab3b2457e2e15403d3697c9ef5cb4b57a9
+  subpackages:
+  - unix
+- name: k8s.io/helm
+  version: 7cf31e8d9a026287041bae077b09165be247ae66
+  subpackages:
+  - pkg/plugin/cache
+testImports: []

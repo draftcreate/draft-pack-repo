@@ -1,0 +1,8 @@
+# Compiled binary output from build.sh
+bin/
+
+# Vendored dependencies generated using `glide install`
+vendor/
+
+# generated coverage file with `make test-cover`
+coverage.txt

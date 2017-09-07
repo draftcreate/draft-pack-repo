@@ -1,0 +1,14 @@
+package: github.com/Azure/draft-pack-repo
+import:
+- package: github.com/Azure/draft
+  version: v0.6.0
+  subpackages:
+  - pkg/draft/draftpath
+  - pkg/plugin/installer
+- package: github.com/Masterminds/semver
+- package: github.com/Masterminds/vcs
+- package: github.com/Sirupsen/logrus
+- package: github.com/spf13/cobra
+- package: k8s.io/helm
+  subpackages:
+  - pkg/plugin/cache
