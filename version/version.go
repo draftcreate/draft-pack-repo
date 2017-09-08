@@ -27,7 +27,7 @@ var (
 	// If it is a development build, the release name is called "canary".
 	//
 	// This number is incremented automatically via build.sh.
-	Release = "canary"
+	Release = "v0.1.0"
 
 	// BuildMetadata is extra build time data
 	BuildMetadata = ""
