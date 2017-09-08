@@ -27,14 +27,6 @@ PROJECT_GH="Azure/$PROJECT_NAME"
 
 : ${DRAFT_PLUGIN_PATH:="$(draft home)/plugins/draft-pack-repo"}
 
-# Convert the DRAFT_PLUGIN_PATH to unix if cygpath is
-# available. This is the case when using MSYS2 or Cygwin
-# on Windows where Draft returns a Windows path but we
-# need a Unix path
-if type cygpath > /dev/null; then
-  DRAFT_PLUGIN_PATH=$(cygpath -u $DRAFT_PLUGIN_PATH)
-fi
-
 if [[ $SKIP_BIN_INSTALL == "1" ]]; then
   echo "Skipping binary install"
   exit
@@ -64,14 +56,13 @@ initOS() {
     msys*) OS='windows';;
     # Minimalist GNU for Windows
     mingw*) OS='windows';;
-    darwin) OS='macos';;
   esac
 }
 
 # verifySupported checks that the os/arch combination is supported for
 # binary builds.
 verifySupported() {
-  local supported="linux-amd64\nmacos-amd64\nwindows-amd64"
+  local supported="linux-amd64\ndarwin-amd64\nwindows-amd64"
   if ! echo "${supported}" | grep -q "${OS}-${ARCH}"; then
     echo "No prebuild binary for ${OS}-${ARCH}."
     exit 1
@@ -88,7 +79,7 @@ getDownloadURL() {
   # Use the GitHub API to find the latest version for this project.
   local latest_url="https://api.github.com/repos/$PROJECT_GH/releases/latest"
   if type "curl" > /dev/null; then
-    DOWNLOAD_URL=$(curl -s $latest_url | grep $OS | awk '/\"browser_download_url\":/{gsub( /[,\"]/,"", $2); print $2}')
+    DOWNLOAD_URL=$(curl -s $latest_url | grep $OS-$ARCH | grep -v ".sha256" | awk '/\"browser_download_url\":/{gsub( /[,\"]/,"", $2); print $2}')
   elif type "wget" > /dev/null; then
     DOWNLOAD_URL=$(wget -q -O - $latest_url | awk '/\"browser_download_url\":/{gsub( /[,\"]/,"", $2); print $2}')
   fi
@@ -112,10 +103,11 @@ installFile() {
   DRAFT_TMP="/tmp/$PROJECT_NAME"
   mkdir -p "$DRAFT_TMP"
   tar xf "$PLUGIN_TMP_FILE" -C "$DRAFT_TMP"
-  DRAFT_TMP_BIN="$DRAFT_TMP/tpl"
+  DRAFT_TMP_BIN="$DRAFT_TMP/$OS-$ARCH/pack-repo"
   echo "Preparing to install into ${DRAFT_PLUGIN_PATH}"
   # Use * to also copy the file withe the exe suffix on Windows
-  cp "$DRAFT_TMP_BIN"* "$DRAFT_PLUGIN_PATH"
+  mkdir "$DRAFT_PLUGIN_PATH/bin"
+  cp "$DRAFT_TMP_BIN"* "$DRAFT_PLUGIN_PATH/bin"
 }
 
 # fail_trap is executed if an error occurs.
@@ -134,8 +126,8 @@ testVersion() {
   echo "$PROJECT_NAME installed into $DRAFT_PLUGIN_PATH/$PROJECT_NAME"
   # To avoid to keep track of the Windows suffix,
   # call the plugin assuming it is in the PATH
-  PATH=$PATH:$DRAFT_PLUGIN_PATH
-  tpl -h
+  PATH=$PATH:$DRAFT_PLUGIN_PATH/bin
+  pack-repo -h
   set -e
 }
 
