@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"path/filepath"
 
 	"github.com/Azure/draft/pkg/draft/draftpath"
 	"github.com/spf13/cobra"
@@ -45,21 +44,24 @@ func (a *addCmd) complete(args []string) error {
 }
 
 func (a *addCmd) run() error {
-	i, err := installer.New(a.source, "", a.home)
+	ins, err := installer.New(a.source, "", a.home)
 	if err != nil {
 		return err
 	}
 
 	debug("installing pack repo from %s", a.source)
-	if err := installer.Install(i); err != nil {
+	if err := installer.Install(ins); err != nil {
 		return err
 	}
 
-	p := repo.Repository{
-		Name: filepath.Base(i.Path()),
-		Dir:  filepath.Dir(i.Path()),
+	var installedRepo repo.Repository
+	repos := repo.FindRepositories(a.home.Packs())
+	for i := range repos {
+		if repos[i].Dir == ins.Path() {
+			installedRepo = repos[i]
+		}
 	}
 
-	fmt.Fprintf(a.out, "Installed pack repository %s\n", p.Name)
+	fmt.Fprintf(a.out, "Installed pack repository %s\n", installedRepo.Name)
 	return nil
 }
