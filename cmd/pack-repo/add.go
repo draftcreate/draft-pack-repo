@@ -12,10 +12,11 @@ import (
 )
 
 type addCmd struct {
-	out    io.Writer
-	err    io.Writer
-	source string
-	home   draftpath.Home
+	out     io.Writer
+	err     io.Writer
+	source  string
+	home    draftpath.Home
+	version string
 }
 
 func newAddCmd(out io.Writer) *cobra.Command {
@@ -31,6 +32,7 @@ func newAddCmd(out io.Writer) *cobra.Command {
 			return add.run()
 		},
 	}
+	cmd.Flags().StringVar(&add.version, "version", "", "specify a version constraint. If this is not specified, the latest version is installed")
 	return cmd
 }
 
@@ -44,7 +46,7 @@ func (a *addCmd) complete(args []string) error {
 }
 
 func (a *addCmd) run() error {
-	ins, err := installer.New(a.source, "", a.home)
+	ins, err := installer.New(a.source, a.version, a.home)
 	if err != nil {
 		return err
 	}
