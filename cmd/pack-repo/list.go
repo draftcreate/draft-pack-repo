@@ -6,9 +6,8 @@ import (
 	"io"
 
 	"github.com/Azure/draft/pkg/draft/draftpath"
+	"github.com/Azure/draft/pkg/draft/pack/repo"
 	"github.com/spf13/cobra"
-
-	"github.com/Azure/draft-pack-repo/repo"
 )
 
 type listCmd struct {

@@ -1,9 +1,12 @@
 package: github.com/Azure/draft-pack-repo
 import:
 - package: github.com/Azure/draft
-  version: v0.6.0
+  repo: https://github.com/bacongobbler/draft
+  version: 7868c8b105a2ab69bd7624072b38eb43a5781f7e
   subpackages:
   - pkg/draft/draftpath
+  - pkg/draft/pack/repo
+  - pkg/draft/pack/repo/installer
   - pkg/plugin/installer
 - package: github.com/Masterminds/semver
 - package: github.com/Masterminds/vcs

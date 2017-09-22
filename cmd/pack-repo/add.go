@@ -5,10 +5,9 @@ import (
 	"io"
 
 	"github.com/Azure/draft/pkg/draft/draftpath"
+	"github.com/Azure/draft/pkg/draft/pack/repo"
+	"github.com/Azure/draft/pkg/draft/pack/repo/installer"
 	"github.com/spf13/cobra"
-
-	"github.com/Azure/draft-pack-repo/repo"
-	"github.com/Azure/draft-pack-repo/repo/installer"
 )
 
 type addCmd struct {
