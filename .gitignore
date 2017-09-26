@@ -1,6 +1,9 @@
 # Compiled binary output from build.sh
 bin/
 
+# Compiled binary output from `make dist`
+_dist/
+
 # Vendored dependencies generated using `glide install`
 vendor/
 
