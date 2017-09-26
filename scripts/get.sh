@@ -26,7 +26,7 @@ PROJECT_NAME="draft-pack-repo"
 PROJECT_GH="Azure/$PROJECT_NAME"
 
 : ${DRAFT_PLUGIN_PATH:="$(draft home)/plugins/draft-pack-repo"}
-: ${VERSION:="latest"}
+: ${VERSION:="canary"}
 
 if [[ $SKIP_BIN_INSTALL == "1" ]]; then
   echo "Skipping binary install"
