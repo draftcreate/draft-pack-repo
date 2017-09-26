@@ -2,7 +2,7 @@ package: github.com/Azure/draft-pack-repo
 import:
 - package: github.com/Azure/draft
   repo: https://github.com/bacongobbler/draft
-  version: pack-repo
+  version: 9671eb74eb03235c559f24c8ef6601e12c9428b5
   subpackages:
   - pkg/draft/draftpath
   - pkg/draft/pack/repo
