@@ -66,7 +66,7 @@ test-lint:
 
 .PHONY: test-unit
 test-unit:
-	$(GO) test $(GOFLAGS) -cover -run $(TESTFLAGS) ./...
+	$(GO) test $(GOFLAGS) -cover -run $(TESTFLAGS) ./cmd/... ./version/...
 
 HAS_GOMETALINTER := $(shell command -v gometalinter;)
 HAS_GLIDE := $(shell command -v glide;)
