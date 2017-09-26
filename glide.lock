@@ -1,17 +1,22 @@
-hash: 382e84f55a5623e448584250d5937f5f53653c9a574cbba07e95ada47f2f8e06
-updated: 2017-09-07T15:59:59.750590977-07:00
+hash: 9c7b38799aa8fc57e83b50dbe0ac712f0e9ad2db71dde99397d87d1bacc7bae1
+updated: 2017-09-22T13:25:28.247054846-07:00
 imports:
 - name: github.com/Azure/draft
-  version: 3d3ab9412686ad5ae523ed7eca721a21e85a38fc
+  version: 7868c8b105a2ab69bd7624072b38eb43a5781f7e
+  repo: https://github.com/bacongobbler/draft
   subpackages:
   - pkg/draft/draftpath
+  - pkg/draft/pack/repo
+  - pkg/draft/pack/repo/installer
+  - pkg/plugin
   - pkg/plugin/installer
+  - pkg/version
 - name: github.com/inconshreveable/mousetrap
   version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
 - name: github.com/Masterminds/semver
   version: 3f0ab6d4ab4bed1c61caf056b63a6e62190c7801
 - name: github.com/Masterminds/vcs
-  version: 3084677c2c188840777bff30054f2b553729d329
+  version: 6f1c6d150500e452704e9863f68c2559f58616bf
 - name: github.com/Sirupsen/logrus
   version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
 - name: github.com/spf13/cobra

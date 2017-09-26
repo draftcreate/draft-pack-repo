@@ -26,6 +26,7 @@ PROJECT_NAME="draft-pack-repo"
 PROJECT_GH="Azure/$PROJECT_NAME"
 
 : ${DRAFT_PLUGIN_PATH:="$(draft home)/plugins/draft-pack-repo"}
+: ${VERSION:="latest"}
 
 if [[ $SKIP_BIN_INSTALL == "1" ]]; then
   echo "Skipping binary install"
@@ -62,9 +63,9 @@ initOS() {
 # verifySupported checks that the os/arch combination is supported for
 # binary builds.
 verifySupported() {
-  local supported="linux-amd64\ndarwin-amd64\nwindows-amd64"
+  local supported="linux-386\ndarwin-386\nwindows-386\nnetbsd-386\nopenbsd-386\nfreebsd-386\nlinux-amd64\ndarwin-amd64\nwindows-amd64\nnetbsd-amd64\nopenbsd-amd64\nfreebsd-amd64"
   if ! echo "${supported}" | grep -q "${OS}-${ARCH}"; then
-    echo "No prebuild binary for ${OS}-${ARCH}."
+    echo "No prebuilt binary for ${OS}-${ARCH}."
     exit 1
   fi
 
@@ -76,13 +77,7 @@ verifySupported() {
 
 # getDownloadURL checks the latest available version.
 getDownloadURL() {
-  # Use the GitHub API to find the latest version for this project.
-  local latest_url="https://api.github.com/repos/$PROJECT_GH/releases/latest"
-  if type "curl" > /dev/null; then
-    DOWNLOAD_URL=$(curl -s $latest_url | grep $OS-$ARCH | grep -v ".sha256" | awk '/\"browser_download_url\":/{gsub( /[,\"]/,"", $2); print $2}')
-  elif type "wget" > /dev/null; then
-    DOWNLOAD_URL=$(wget -q -O - $latest_url | awk '/\"browser_download_url\":/{gsub( /[,\"]/,"", $2); print $2}')
-  fi
+  DOWNLOAD_URL="https://azuredraft.blob.core.windows.net/draft/pack-repo-$VERSION-$OS-$ARCH.tar.gz"
 }
 
 # downloadFile downloads the latest binary package and also the checksum
@@ -114,8 +109,8 @@ installFile() {
 fail_trap() {
   result=$?
   if [ "$result" != "0" ]; then
-    echo "Failed to install $PROJECT_NAME"
-    echo "\tFor support, go to https://github.com/$PROJECT_GH."
+    echo -e "!!!\tFailed to install $PROJECT_NAME"
+    echo -e "!!!\tFor support, go to https://github.com/$PROJECT_GH."
   fi
   exit $result
 }
