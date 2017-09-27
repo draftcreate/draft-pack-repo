@@ -14,7 +14,7 @@ func (v *Version) String() string {
 	ver := v.SemVer
 	// show commit metadata if this is an unofficial release
 	if Release == "canary" && GitCommit != "" {
-		ver = fmt.Sprintf("%s+%s.%s", v.SemVer, v.GitCommit)
+		ver = fmt.Sprintf("%s+%s", v.SemVer, v.GitCommit)
 	}
 	return ver
 }
