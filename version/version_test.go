@@ -8,7 +8,6 @@ func cleanUp() {
 	Release = ""
 	BuildMetadata = ""
 	GitCommit = ""
-	GitTreeState = ""
 }
 
 func TestNew(t *testing.T) {
@@ -20,16 +19,12 @@ func TestNew(t *testing.T) {
 	}
 	BuildMetadata = "bar"
 	GitCommit = "car"
-	GitTreeState = "star"
 	v = New()
 	if v.SemVer != "foo+bar" {
 		t.Errorf("expected 'foo+bar', got '%s'", v.SemVer)
 	}
 	if v.GitCommit != "car" {
 		t.Errorf("expected 'car', got '%s'", v.GitCommit)
-	}
-	if v.GitTreeState != "star" {
-		t.Errorf("expected 'star', got '%s'", v.GitTreeState)
 	}
 }
 

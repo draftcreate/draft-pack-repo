@@ -4,18 +4,17 @@ import (
 	"fmt"
 )
 
-// Version contains the semver release, git commit, and git tree state.
+// Version contains the semver release and git commit.
 type Version struct {
 	SemVer       string `json:"semver"`
 	GitCommit    string `json:"git-commit"`
-	GitTreeState string `json:"git-tree-state"`
 }
 
 func (v *Version) String() string {
 	ver := v.SemVer
 	// show commit metadata if this is an unofficial release
 	if Release == "canary" && GitCommit != "" {
-		ver = fmt.Sprintf("%s+%s.%s", v.SemVer, v.GitCommit, v.GitTreeState)
+		ver = fmt.Sprintf("%s+%s.%s", v.SemVer, v.GitCommit)
 	}
 	return ver
 }
@@ -33,8 +32,6 @@ var (
 	BuildMetadata = ""
 	// GitCommit is the git sha1
 	GitCommit = ""
-	// GitTreeState is the state of the git tree
-	GitTreeState = ""
 )
 
 // getVersion returns the semver string of the version
@@ -50,6 +47,5 @@ func New() *Version {
 	return &Version{
 		SemVer:       getVersion(),
 		GitCommit:    GitCommit,
-		GitTreeState: GitTreeState,
 	}
 }
