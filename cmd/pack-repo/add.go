@@ -45,7 +45,7 @@ func (a *addCmd) complete(args []string) error {
 }
 
 func (a *addCmd) run() error {
-	fmt.Fprintf(a.out, "Installing pack repo from %s", a.source)
+	fmt.Fprintf(a.out, "Installing pack repo from %s\n", a.source)
 
 	ins, err := installer.New(a.source, a.version, a.home)
 	if err != nil {
