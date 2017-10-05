@@ -9,7 +9,7 @@ gometalinter --vendor --tests --deadline=20s --disable-all \
 --enable=ineffassign \
 --enable=vet \
 --exclude=pkg/draft/pack/generated \
-$(glide novendor)
+./...
 
 mandatory=$?
 
@@ -18,6 +18,6 @@ echo -e "\033[0;32mOptional Linters: These should pass\033[0m"
 gometalinter --vendor --tests --deadline=20s --disable-all \
 --enable=golint \
 --exclude=pkg/draft/pack/generated \
-$(glide novendor)
+./...
 
 exit $mandatory

@@ -4,7 +4,7 @@ bin/
 # Compiled binary output from `make dist`
 _dist/
 
-# Vendored dependencies generated using `glide install`
+# Vendored dependencies
 vendor/
 
 # generated coverage file with `make test-cover`
