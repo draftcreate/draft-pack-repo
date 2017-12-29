@@ -1,5 +1,5 @@
 name: "pack-repo"
-version: "0.1.0"
+version: "0.3.0"
 usage: "The Draft pack repository plugin"
 description: "The Draft pack repository plugin"
 command: "$DRAFT_PLUGIN_DIR/bin/pack-repo"
