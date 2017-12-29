@@ -2,29 +2,22 @@
 
 
 [[projects]]
-  branch = "pack-repo"
   name = "github.com/Azure/draft"
-  packages = ["pkg/draft/draftpath","pkg/draft/pack/repo","pkg/draft/pack/repo/installer","pkg/plugin","pkg/plugin/installer","pkg/version"]
-  revision = "db2141616fade710879334658af846c319014e62"
-  source = "https://github.com/bacongobbler/draft"
+  packages = ["pkg/draft/draftpath","pkg/draft/pack/repo","pkg/draft/pack/repo/installer","pkg/osutil","pkg/plugin","pkg/plugin/installer","pkg/version"]
+  revision = "6a6b387d84cc7530b45bfff704bd1d71e36082ed"
+  version = "v0.9.0"
 
 [[projects]]
   name = "github.com/Masterminds/semver"
   packages = ["."]
-  revision = "517734cc7d6470c0d07130e40fd40bdeb9bcd3fd"
-  version = "v1.3.1"
+  revision = "15d8430ab86497c5c0da827b748823945e1cf1e1"
+  version = "v1.4.0"
 
 [[projects]]
   name = "github.com/Masterminds/vcs"
   packages = ["."]
   revision = "6f1c6d150500e452704e9863f68c2559f58616bf"
   version = "v1.12.0"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/Sirupsen/logrus"
-  packages = ["."]
-  revision = "89742aefa4b206dcf400792f3bd35b542998eb3b"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -35,32 +28,24 @@
 [[projects]]
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "b78744579491c1ceeaaa3b40205e56b0591b93a3"
+  revision = "7b2c5ac9fc04fc5efafb60700713d4fa609b777b"
+  version = "v0.0.1"
 
 [[projects]]
   name = "github.com/spf13/pflag"
   packages = ["."]
-  revision = "7aff26db30c1be810f9de5038ec5ef96ac41fd7c"
-
-[[projects]]
-  name = "golang.org/x/crypto"
-  packages = ["ssh/terminal"]
-  revision = "847319b7fc94cab682988f93da778204da164588"
-
-[[projects]]
-  name = "golang.org/x/sys"
-  packages = ["unix","windows"]
-  revision = "429f518978ab01db8bb6f44b66785088e7fba58b"
+  revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
+  version = "v1.0.0"
 
 [[projects]]
   name = "k8s.io/helm"
   packages = ["pkg/plugin/cache"]
-  revision = "7cf31e8d9a026287041bae077b09165be247ae66"
-  version = "v2.5.1"
+  revision = "8478fb4fc723885b155c924d1c8c410b7a9444e6"
+  version = "v2.7.2"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "ee538e0f419f0d5c0384e7933c7ef569c2447f820f35ad8699ec816697fe4a4b"
+  inputs-digest = "13cfa62806574bb04608c0f7bbf4e5516619bfb5cb9ce4a43a2a6348d3cfdf7c"
   solver-name = "gps-cdcl"
   solver-version = 1
