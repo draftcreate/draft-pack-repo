@@ -6,8 +6,8 @@ import (
 
 // Version contains the semver release and git commit.
 type Version struct {
-	SemVer       string `json:"semver"`
-	GitCommit    string `json:"git-commit"`
+	SemVer    string `json:"semver"`
+	GitCommit string `json:"git-commit"`
 }
 
 func (v *Version) String() string {
@@ -45,7 +45,7 @@ func getVersion() string {
 // New returns the semver interpretation of the version.
 func New() *Version {
 	return &Version{
-		SemVer:       getVersion(),
-		GitCommit:    GitCommit,
+		SemVer:    getVersion(),
+		GitCommit: GitCommit,
 	}
 }
