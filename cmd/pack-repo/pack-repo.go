@@ -11,13 +11,17 @@ import (
 	"os"
 	"strings"
 
+	log "github.com/Sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
 const homeEnvVar = "DRAFT_HOME"
 
-var globalUsage = `The Draft pack repository plugin.
+var (
+	flagDebug   bool
+	globalUsage = `The Draft pack repository plugin.
 `
+)
 
 func newRootCmd(out io.Writer, in io.Reader) *cobra.Command {
 	cmd := &cobra.Command{
@@ -25,7 +29,15 @@ func newRootCmd(out io.Writer, in io.Reader) *cobra.Command {
 		Short:        "the Draft pack repository plugin",
 		Long:         globalUsage,
 		SilenceUsage: true,
+		PersistentPreRun: func(cmd *cobra.Command, args []string) {
+			if flagDebug {
+				log.SetLevel(log.DebugLevel)
+			}
+		},
 	}
+
+	p := cmd.PersistentFlags()
+	p.BoolVar(&flagDebug, "debug", false, "enable verbose output")
 
 	cmd.AddCommand(
 		newAddCmd(out),
@@ -39,6 +51,13 @@ func newRootCmd(out io.Writer, in io.Reader) *cobra.Command {
 
 func homePath() string {
 	return os.Getenv(homeEnvVar)
+}
+
+func debug(format string, args ...interface{}) {
+	if flagDebug {
+		format = fmt.Sprintf("[debug] %s\n", format)
+		fmt.Printf(format, args...)
+	}
 }
 
 func main() {

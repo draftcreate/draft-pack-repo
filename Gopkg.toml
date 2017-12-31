@@ -3,3 +3,6 @@
 
 [[constraint]]
   name = "github.com/spf13/cobra"
+
+[[constraint]]
+  name = "github.com/Sirupsen/logrus"

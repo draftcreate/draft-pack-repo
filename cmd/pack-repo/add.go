@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"os"
 
 	"github.com/Azure/draft/pkg/draft/draftpath"
 	"github.com/Azure/draft/pkg/draft/pack/repo"
@@ -40,7 +41,17 @@ func (a *addCmd) complete(args []string) error {
 		return err
 	}
 	a.source = args[0]
-	a.home = draftpath.Home(homePath())
+	home := homePath()
+	if home == "" {
+		path, err := os.Getwd()
+		if err != nil {
+			return err
+		}
+		home = path
+	}
+
+	a.home = draftpath.Home(home)
+	debug("home path: %s", a.home)
 	return nil
 }
 
