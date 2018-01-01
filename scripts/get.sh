@@ -101,7 +101,7 @@ installFile() {
   DRAFT_TMP_BIN="$DRAFT_TMP/$OS-$ARCH/pack-repo"
   echo "Preparing to install into ${DRAFT_PLUGIN_PATH}"
   # Use * to also copy the file withe the exe suffix on Windows
-  mkdir "$DRAFT_PLUGIN_PATH/bin"
+  mkdir -p "$DRAFT_PLUGIN_PATH/bin"
   cp "$DRAFT_TMP_BIN"* "$DRAFT_PLUGIN_PATH/bin"
 }
 
