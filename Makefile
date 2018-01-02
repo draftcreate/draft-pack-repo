@@ -91,3 +91,7 @@ endif
 	dep ensure
 
 include versioning.mk
+
+# Set VERSION to build release assets for a specific version
+.PHONY: release-assets
+release-assets: build-cross dist checksum

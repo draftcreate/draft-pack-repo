@@ -20,7 +20,7 @@ func (v *Version) String() string {
 }
 
 var (
-	// Release is the current release of pack-man.
+	// Release is the current release of pack-repo.
 	// The release is of the format Major.Minor.Patch[-Prerelease][+BuildMetadata]
 	//
 	// If it is a development build, the release name is called "canary".
