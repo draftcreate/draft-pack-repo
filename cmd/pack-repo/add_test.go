@@ -35,6 +35,33 @@ func TestAddReturnsPackRepoExistsErr(t *testing.T) {
 	}
 }
 
+func TestAddComplete(t *testing.T) {
+
+	add := &addCmd{
+		out: ioutil.Discard,
+		err: ioutil.Discard,
+	}
+
+	source := "testdata/packrepo"
+	args := []string{source}
+	if err := add.complete(args); err != nil {
+		t.Errorf("unexpected error: %s", err)
+	}
+	if add.source != source {
+		t.Errorf("Incorrect source. Expected %s, got %s", source, add.source)
+	}
+
+	home, err := os.Getwd()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if string(add.home) != home {
+		t.Errorf("Incorrect home. Expected %s, got %s", home, add.home)
+	}
+
+}
+
 // tempDir creates and returns the path as well as a function to clean the temporary directory
 func tempDir(t *testing.T) (string, func()) {
 	t.Helper()
