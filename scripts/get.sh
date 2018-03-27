@@ -122,7 +122,7 @@ testVersion() {
   # To avoid to keep track of the Windows suffix,
   # call the plugin assuming it is in the PATH
   PATH=$PATH:$DRAFT_PLUGIN_PATH/bin
-  pack-repo -h
+  pack-repo -h > /dev/null
   set -e
 }
 
