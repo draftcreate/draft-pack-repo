@@ -3,9 +3,16 @@
 
 [[projects]]
   name = "github.com/Azure/draft"
-  packages = ["pkg/draft/draftpath","pkg/draft/pack/repo","pkg/draft/pack/repo/installer","pkg/osutil","pkg/plugin","pkg/plugin/installer","pkg/version"]
-  revision = "6a6b387d84cc7530b45bfff704bd1d71e36082ed"
-  version = "v0.9.0"
+  packages = [
+    "pkg/draft/draftpath",
+    "pkg/draft/pack/repo",
+    "pkg/draft/pack/repo/installer",
+    "pkg/osutil",
+    "pkg/plugin",
+    "pkg/plugin/installer",
+    "pkg/version"
+  ]
+  revision = "d9cab2fb284962f36bf11c363421d3670c49b7ed"
 
 [[projects]]
   name = "github.com/Masterminds/semver"
@@ -22,8 +29,8 @@
 [[projects]]
   name = "github.com/Sirupsen/logrus"
   packages = ["."]
-  revision = "d682213848ed68c0a260ca37d6dd5ace8423f5ba"
-  version = "v1.0.4"
+  revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
+  version = "v1.0.5"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -47,13 +54,16 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
-  revision = "95a4943f35d008beabde8c11e5075a1b714e6419"
+  revision = "88942b9c40a4c9d203b82b3731787b672d6e809b"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
-  packages = ["unix","windows"]
-  revision = "83801418e1b59fb1880e363299581ee543af32ca"
+  packages = [
+    "unix",
+    "windows"
+  ]
+  revision = "13d03a9a82fba647c21a0ef8fba44a795d0f0835"
 
 [[projects]]
   name = "k8s.io/helm"
@@ -64,6 +74,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "94dcbf29ae92286e328f13571c295179a0121e0c3a72a2bd33b3aca236b9567f"
+  inputs-digest = "e4e7227afa807be91bf75d43765a93096bc89ddffb942fafe2d92e24ef568a69"
   solver-name = "gps-cdcl"
   solver-version = 1
