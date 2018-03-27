@@ -1,6 +1,6 @@
 [[constraint]]
   name = "github.com/Azure/draft"
-  revision = "d9cab2fb284962f36bf11c363421d3670c49b7ed"
+  revision = "a7347c56384cac96dca75daff75583b43968b7da"
 
 [[constraint]]
   name = "github.com/spf13/cobra"

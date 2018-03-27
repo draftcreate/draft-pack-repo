@@ -12,7 +12,7 @@
     "pkg/plugin/installer",
     "pkg/version"
   ]
-  revision = "d9cab2fb284962f36bf11c363421d3670c49b7ed"
+  revision = "a7347c56384cac96dca75daff75583b43968b7da"
 
 [[projects]]
   name = "github.com/Masterminds/semver"
@@ -74,6 +74,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "e4e7227afa807be91bf75d43765a93096bc89ddffb942fafe2d92e24ef568a69"
+  inputs-digest = "51afccc04a95b08102e8901358ca92877f09369297d7ca5ede06d24b3341df9e"
   solver-name = "gps-cdcl"
   solver-version = 1
