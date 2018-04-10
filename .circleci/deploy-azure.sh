@@ -39,3 +39,4 @@ fi
 
 echo "Pushing binaries to Azure Blob Storage"
 az storage blob upload-batch --source _dist/ --destination "${AZURE_CONTAINER}" --pattern *.tar.gz*
+az storage blob upload-batch --source _dist/ --destination "${AZURE_CONTAINER}" --pattern *.zip*
