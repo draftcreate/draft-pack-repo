@@ -16,7 +16,9 @@ $installPath = "$env:DRAFT_HOME\plugins\draft-pack-repo\bin"
 if (![System.IO.Directory]::Exists($installPath)) {[void][System.IO.Directory]::CreateDirectory($installPath)}
 Write-Output "Preparing to install into $installPath"
 
+$binaryPath = "$installPath\$name.exe"
 Expand-Archive -Path "$file" -DestinationPath "$tempDir" -Force
-Move-Item -Path "$tempDir\windows-amd64\$name.exe" -Destination "$installPath\$name.exe"
+if ([System.IO.File]::Exists("$binaryPath")) {[void][System.IO.File]::Delete("$binaryPath")}
+Move-Item -Path "$tempDir\windows-amd64\$name.exe" -Destination "$binaryPath"
 
 Write-Output "$name installed into $installPath\$name.exe"
