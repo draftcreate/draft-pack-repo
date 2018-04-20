@@ -17,12 +17,12 @@ all: build
 
 .PHONY: build
 build:
-	GOBIN=$(BINDIR) $(GO) install $(GOFLAGS) -tags '$(TAGS)' -ldflags '$(LDFLAGS)' github.com/Azure/draft-pack-repo/cmd/...
+	GOBIN=$(BINDIR) $(GO) install $(GOFLAGS) -tags '$(TAGS)' -ldflags '$(LDFLAGS)' github.com/draftcreate/draft-pack-repo/cmd/...
 
 .PHONY: build-cross
 build-cross: LDFLAGS += -extldflags "-static"
 build-cross:
-	CGO_ENABLED=0 gox -output="_dist/{{.OS}}-{{.Arch}}/{{.Dir}}" -osarch='$(TARGETS)' $(GOFLAGS) -tags '$(TAGS)' -ldflags '$(LDFLAGS)' github.com/Azure/draft-pack-repo/cmd/$(NAME)
+	CGO_ENABLED=0 gox -output="_dist/{{.OS}}-{{.Arch}}/{{.Dir}}" -osarch='$(TARGETS)' $(GOFLAGS) -tags '$(TAGS)' -ldflags '$(LDFLAGS)' github.com/draftcreate/draft-pack-repo/cmd/$(NAME)
 
 .PHONY: dist
 dist:

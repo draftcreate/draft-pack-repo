@@ -8,5 +8,5 @@ endif
 
 BINARY_VERSION ?= ${GIT_TAG}-${GIT_SHA}
 
-LDFLAGS += -X github.com/Azure/draft-pack-repo/version.Version=${GIT_TAG}
-LDFLAGS += -X github.com/Azure/draft-pack-repo/version.GitCommit=${GIT_COMMIT}
+LDFLAGS += -X github.com/draftcreate/draft-pack-repo/version.Version=${GIT_TAG}
+LDFLAGS += -X github.com/draftcreate/draft-pack-repo/version.GitCommit=${GIT_COMMIT}

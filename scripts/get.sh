@@ -23,7 +23,7 @@
 # Ripped from github.com/technosophos/helm-template's get-binary.sh script, with a few tweaks to fetch draft-pack-repo.
 
 PROJECT_NAME="draft-pack-repo"
-PROJECT_GH="Azure/$PROJECT_NAME"
+PROJECT_GH="draftcreate/$PROJECT_NAME"
 
 : ${DRAFT_PLUGIN_PATH:="$DRAFT_HOME/plugins/draft-pack-repo"}
 : ${DRAFT_PLUGIN_VERSION:="canary"}
