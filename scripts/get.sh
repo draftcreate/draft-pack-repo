@@ -77,7 +77,7 @@ verifySupported() {
 
 # getDownloadURL checks the latest available version.
 getDownloadURL() {
-  DOWNLOAD_URL="https://azuredraft.blob.core.windows.net/draft/pack-repo-$VERSION-$OS-$ARCH.tar.gz"
+  DOWNLOAD_URL="https://azuredraft.blob.core.windows.net/draft/pack-repo-$DRAFT_PLUGIN_VERSION-$OS-$ARCH.tar.gz"
 }
 
 # downloadFile downloads the latest binary package and also the checksum
