@@ -1,6 +1,6 @@
 $name = "pack-repo"
 $version = "canary"
-$url = "https://github.com/Azure/draft-$name/releases/download/$version/$name-$version-windows-amd64.zip"
+$url = "https://github.com/draftcreate/draft-$name/releases/download/$version/$name-$version-windows-amd64.zip"
 
 if ($env:TEMP -eq $null) {
   $env:TEMP = Join-Path $env:SystemDrive 'temp'

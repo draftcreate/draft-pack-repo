@@ -14,7 +14,7 @@ Full steps, in bash:
 
 ```bash
 export VERSION=vX.Y.Z
-git clone https://github.com/Azure/draft-pack-repo
+git clone https://github.com/draftcreate/draft-pack-repo
 cd draft-pack-repo
 git tag $VERSION
 git push origin $VERSION

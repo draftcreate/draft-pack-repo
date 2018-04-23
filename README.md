@@ -7,7 +7,7 @@ The Draft pack repository plugin.
 Fetch the latest version of `draft pack-repo` using
 
 ```
-$ draft plugin install https://github.com/Azure/draft-pack-repo
+$ draft plugin install https://github.com/draftcreate/draft-pack-repo
 ```
 
 ## Why a Plugin?
