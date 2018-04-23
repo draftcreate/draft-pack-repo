@@ -1,13 +1,13 @@
 $name = "pack-repo"
 $version = "canary"
-$url = "https://github.com/draftcreate/draft-$name/releases/download/$version/$name-$version-windows-amd64.zip"
+$url = "https://github.com/draftcreate/draft-$name/releases/download/$version/$name-v$version-windows-amd64.zip"
 
 if ($env:TEMP -eq $null) {
   $env:TEMP = Join-Path $env:SystemDrive 'temp'
 }
 $tempDir = Join-Path $env:TEMP $name
 if (![System.IO.Directory]::Exists($tempDir)) {[void][System.IO.Directory]::CreateDirectory($tempDir)}
-$file = Join-Path $env:TEMP "$name-$version-windows-amd64.zip"
+$file = Join-Path $env:TEMP "$name-v$version-windows-amd64.zip"
 
 Write-Output "Downloading $url"
 (new-object System.Net.WebClient).DownloadFile($url, $file)
