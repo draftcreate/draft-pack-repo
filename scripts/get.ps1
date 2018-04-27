@@ -1,6 +1,5 @@
 $name = "pack-repo"
-$version = "0.4.2"
-$url = "https://azuredraft.blob.core.windows.net/draft/$name-v$version-windows-amd64.zip"
+$url = "https://azuredraft.blob.core.windows.net/draft/$name-v$env:DRAFT_PLUGIN_VERSION-windows-amd64.zip"
 
 if ($env:TEMP -eq $null) {
   $env:TEMP = Join-Path $env:SystemDrive 'temp'
