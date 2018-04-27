@@ -1,5 +1,5 @@
 $name = "pack-repo"
-$version = "0.4.2"
+$version = "0.4.1"
 $url = "https://azuredraft.blob.core.windows.net/draft/$name-v$version-windows-amd64.zip"
 
 if ($env:TEMP -eq $null) {
