@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/draftcreate/draft-pack-repo/tree/master.svg?style=svg)](https://circleci.com/gh/draftcreate/draft-pack-repo/tree/master)
 # Draft Pack Repository Plugin
 
 The Draft pack repository plugin.
