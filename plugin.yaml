@@ -7,4 +7,5 @@ hooks:
   bash:
     install: "$DRAFT_PLUGIN_DIR/scripts/get.sh"
   powershell:
-    install: "powershell.exe $env:DRAFT_PLUGIN_DIR\\scripts\\get.ps1"
+    install: >
+      powershell.exe "&'$env:DRAFT_PLUGIN_DIR\scripts\get.ps1'"
