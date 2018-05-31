@@ -1,7 +1,7 @@
 [![CircleCI](https://circleci.com/gh/draftcreate/draft-pack-repo/tree/master.svg?style=svg)](https://circleci.com/gh/draftcreate/draft-pack-repo/tree/master)
 # Draft Pack Repository Plugin
 
-The Draft pack repository plugin.
+The Draft pack repository plugin enables you to add, remove, list pack repositories in (Draft][https:github.com/Azure/draft].
 
 ## Installation
 
