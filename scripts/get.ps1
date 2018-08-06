@@ -13,7 +13,7 @@ $proxy = New-Object System.Net.WebClient
 $Proxy.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
 
 Write-Output "Downloading $url"
-($proxy).DownloadFile($url, $file)
+$proxy.DownloadFile($url, $file)
 
 $installPath = "$env:DRAFT_HOME\plugins\draft-pack-repo\bin"
 if (![System.IO.Directory]::Exists($installPath)) {[void][System.IO.Directory]::CreateDirectory($installPath)}
