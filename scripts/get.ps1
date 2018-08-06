@@ -9,8 +9,11 @@ $tempDir = Join-Path $env:TEMP $name
 if (![System.IO.Directory]::Exists($tempDir)) {[void][System.IO.Directory]::CreateDirectory($tempDir)}
 $file = Join-Path $env:TEMP "$name-v$version-windows-amd64.zip"
 
+$proxy = New-Object System.Net.WebClient
+$Proxy.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
+
 Write-Output "Downloading $url"
-(new-object System.Net.WebClient).DownloadFile($url, $file)
+($proxy).DownloadFile($url, $file)
 
 $installPath = "$env:DRAFT_HOME\plugins\draft-pack-repo\bin"
 if (![System.IO.Directory]::Exists($installPath)) {[void][System.IO.Directory]::CreateDirectory($installPath)}
